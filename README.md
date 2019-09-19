@@ -8,6 +8,7 @@
 ### 框架整体介绍
 * [作者信息](#作者信息)
 * [作者其他库](#作者其他库)
+* [方法介绍](#方法介绍)
 * [使用方法](#使用方法)
 
 #### <a id="作者信息"></a>作者信息
@@ -39,6 +40,21 @@ pod 'KJLoadingAnimation' # 加载控件
 
 ##### Issue
 如果您在使用中有好的需求及建议，或者遇到什么bug，欢迎随时issue，我会及时的回复，有空也会不断优化更新这些库
+
+#### <a id="方法介绍"></a>方法介绍
+```
+/// NSPredicate 不影响原数组，返回数组即为过滤结果  bindings参数:替换变量字典。字典必须包含接收器中所有变量的键值对
++ (NSArray*)kj_filtrationDatasWithTemps:(NSArray*)temps predicateWithBlock:(BOOL (^)(id _Nullable evaluatedObject, NSDictionary<NSString *, id> * _Nullable bindings))block;
+
+/// NSPredicate 除去数组temps中包含的数组targetTemps元素
++ (NSArray*)kj_delEqualDatasWithTemps:(NSArray*)temps TargetTemps:(NSArray*)targetTemps;
+
+/// 利用 NSSortDescriptor 对对象数组，按照某一属性的升序降序排列
++ (NSArray*)kj_sortDescriptorWithTemps:(NSArray*)temps Key:(NSString*)key Ascending:(BOOL)ascending;
+
+/// 利用 NSSortDescriptor 对对象数组，按照某些属性的升序降序排列
++ (NSArray*)kj_sortDescriptorWithTemps:(NSArray*)temps Keys:(NSArray*)keys Ascendings:(NSArray*)ascendings;
+```
 
 #### <a id="使用方法"></a>使用方法
 ```
