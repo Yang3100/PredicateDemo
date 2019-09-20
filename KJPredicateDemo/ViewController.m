@@ -39,12 +39,15 @@
                        @{@"Apple":@"2",@"xx":@"bdq"},
                        @{@"Apple":@"2",@"xx":@"B"},
                        @{@"Apple":@"4",@"xx":@""},
-                       @{@"Apple":@"2",@"xx":@"cb"},
+                       @{@"Apple":@"4",@"xx":@"cb"},
                        @{@"Apple":@"2",@"xx":@"2"},
                        ];
     /// 字母排序是根据首字母的ASC码排序
     NSArray *arr3 = [KJPredicateTool kj_sortDescriptorWithTemps:temp3 Keys:@[@"Apple",@"xx"] Ascendings:@[@(NO),@(YES)]];
     NSLog(@"\n利用 NSSortDescriptor 对对象数组，按照某些属性的升序降序排列 = %@",arr3);
+    
+    NSArray *arr4 = [KJPredicateTool kj_takeOutDatasWithTemps:temp3 Key:@"xx" Value:@"cb"];
+    NSLog(@"\n利用 NSSortDescriptor 对对象数组，取出 key 中包含 value 的元素 = %@",arr4);
 }
 
 
