@@ -10,6 +10,23 @@
 
 @implementation KJPredicateTool
 
+/// 映射
++ (NSArray*)kj_mapWithTemps:(NSArray*)temp Block:(id (^)(id object))block{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:temp.count];
+    for (id object in temp) {
+        [array addObject:block(object) ?: [NSNull null]];
+    }
+    return array;
+}
+/// 筛选数据
++ (id)kj_detectWithTemps:(NSArray*)temp Block:(BOOL (^)(id object))block{
+    for (id object in temp) {
+        if (block(object)) return object;
+    }
+    return nil;
+}
+
+
 //MARK: - ------------------------ Predicate谓词的简单使用 ------------------------
 /*
  // self 表示数组元素/字符串本身
